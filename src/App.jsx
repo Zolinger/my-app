@@ -1,28 +1,44 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { Message } from "./Message";
-import "./Message.css";
+import React, { useCallback, useState } from "react";
+
+const CHAT = [];
 
 function App() {
-  const name = "Aleksandr";
-  const years = "33";
+  const MessageList = () => {
+    const [MessageList] = useState(CHAT);
+    return MessageList.map(({ message }) => (
+      <div className="message">{message}</div>
+    ));
+  };
+  const SendMessageForm = () => {
+    const [message, MessageList] = useState();
+    const handleChange = useCallback((e) => {
+      MessageList(e.target.message);
+    }, []);
+    return (
+      <div className="sendform">
+        <form>
+          <input
+            className="message-form"
+            type="text"
+            value={message}
+            placeholder="Enter your message..."
+            onChange={handleChange}
+          />
+          <input
+            type="submit"
+            value="Send"
+            className="message-button"
+            onClick={MessageList}
+          />
+        </form>
+      </div>
+    );
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Message name={name} years={years} />
-      </header>
+    <div className="chat">
+      <MessageList />
+      <SendMessageForm />
     </div>
   );
 }

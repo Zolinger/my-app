@@ -1,38 +1,62 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.message-button {
+  border-radius: 5px;
   color: white;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px 20px;
+  background-color: royalblue;
+  margin: 15px 20px;
 }
-
-.App-link {
-  color: #61dafb;
+.message-button:hover {
+  color: royalblue;
+  background-color: white;
+  border: 2px solid royalblue;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.message-form {
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px;
+  background-color: white;
+}
+.chat {
+  position: relative;
+  width: 470px;
+  height: 600px;
+  margin: 20px 20px;
+  border: 3px solid royalblue;
+  border-radius: 10px;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 15px;
+  background-color: white;
+}
+.sendform {
+  position: absolute;
+  bottom: 0;
+  width: 430px;
+  height: 80px;
+  margin-bottom: 10px;
+  border: 5px solid royalblue;
+  border-radius: 10px;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 15px;
+  background-color: white;
+}
+.message {
+  width: 200px;
+  height: 70px;
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 5px 10px;
+  background-color: white;
+  border: 2px solid royalblue;
+  margin: 7px 10px;
 }

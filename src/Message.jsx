@@ -1,3 +1,5 @@
+import "./Message.css";
+
 export const Message = ({ name, years }) => {
   return (
     <div className="mytext">
