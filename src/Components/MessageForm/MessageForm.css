@@ -1,0 +1,14 @@
+.sendform {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  height: 70px;
+  border: 1px solid royalblue;
+  border-radius: 5px;
+  color: black;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px;
+  background-color: white;
+}

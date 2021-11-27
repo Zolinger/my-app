@@ -1,0 +1,20 @@
+.message {
+  height: 80px;
+  border-radius: 3px;
+  padding: 5px 10px;
+  border: 2px solid royalblue;
+  border-radius: 5px;
+  margin: 7px 10px;
+  list-style-type: none;
+}
+.message_author {
+  border: 2px solid royalblue;
+  border-radius: 5px;
+  background-color: rgb(247, 247, 53);
+  font-size: 14px;
+  font-weight: 600;
+}
+.message_text {
+  font-size: 13px;
+  font-weight: 500;
+}
