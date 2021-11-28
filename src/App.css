@@ -1,12 +1,30 @@
-.chat {
+.main-window {
+  display: flex;
   position: relative;
-  width: 485px;
-  height: 700px;
-  margin: 20px 20px;
+  flex-direction: column;
+  width: 550px;
+  margin: 20px auto;
+}
+.family {
+  position: absolute;
+  display: flex;
+  margin: 60px 0px 0px 0px;
+}
+.chat {
+  width: 426px;
+  height: 600px;
+  border: 1px solid royalblue;
+  border-radius: 0px 0px 5px 5px;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+}
+.menu {
+  width: 120px;
+  height: 600px;
   border: 1px solid royalblue;
   border-radius: 5px;
   color: black;
   font-size: 16px;
   font-weight: 500;
-  background-color: white;
 }

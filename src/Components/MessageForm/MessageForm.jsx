@@ -33,19 +33,21 @@ export function MessageForm({ messageList, setMessageList }) {
     >
       <div className="sendform">
         <TextField
+          className="text-field"
           id="outlined-textarea"
-          label="Enter your name..."
+          label="Name..."
           value={messageAuthor}
-          placeholder="Enter your name..."
+          placeholder="Name..."
           onChange={handleAuthorChange}
           multiline
           autoFocus
         />
         <TextField
-          label="Enter your message..."
+          className="text-field"
+          label="Message..."
           value={messageText}
           onChange={handleTextChange}
-          placeholder="Enter your message..."
+          placeholder="Message..."
           multiline
         />
         <Button

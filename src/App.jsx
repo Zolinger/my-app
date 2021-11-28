@@ -4,6 +4,7 @@ import "./Components/MessageForm/MessageForm.css";
 import "./Components/MessageForm/MessageList.css";
 import { MessageList } from "./Components/MessageForm/MessageList";
 import { MessageForm } from "./Components/MessageForm/MessageForm";
+import { Router } from "./Router/Router";
 import { v4 as uuidv4 } from "uuid";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -40,7 +41,7 @@ function App() {
   }, [BOT_MESSAGES, messageList]);
 
   return (
-    <div className="chat">
+    <div className="main-window">
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
@@ -56,12 +57,22 @@ function App() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Menu
             </Typography>
-            <Button color="inherit">Main chat</Button>
+            <Button color="inherit">Main</Button>
           </Toolbar>
         </AppBar>
       </Box>
-      <MessageList messageList={messageList} />
-      <MessageForm messageList={messageList} setMessageList={setMessageList} />
+      <div className="family">
+        <div className="menu">
+          <Router />
+        </div>
+        <div className="chat">
+          <MessageList messageList={messageList} />
+          <MessageForm
+            messageList={messageList}
+            setMessageList={setMessageList}
+          />
+        </div>
+      </div>
     </div>
   );
 }
