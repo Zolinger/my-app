@@ -1,10 +1,16 @@
-import { Navigate, useParams } from "react-router-dom";
-import { ROUTES } from "../../Router/constants";
+/*import { Navigate, useParams } from "react-router-dom";
+import { ROUTES } from "../../Router/constants";*/
 
 export const Chats = () => {
-  const { chatId } = useParams();
+  /*const { chatId } = useParams();
   if (!chatId) {
     return <Navigate to={ROUTES.NO_CHAT} />;
-  }
-  return <h1>Chats page</h1>;
+  }*/
+  return (
+    <>
+      <li>Skynet</li>
+      <li>T-1000</li>
+      <li>Rebelscum</li>
+    </>
+  );
 };

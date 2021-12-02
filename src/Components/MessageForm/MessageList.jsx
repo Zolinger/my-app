@@ -2,7 +2,7 @@ import "./MessageList.css";
 
 export function MessageList({ messageList }) {
   return (
-    <div>
+    <>
       {messageList.map(({ id, author, text }) => (
         <div key={id} className="message">
           <>
@@ -11,6 +11,6 @@ export function MessageList({ messageList }) {
           </>
         </div>
       ))}
-    </div>
+    </>
   );
 }

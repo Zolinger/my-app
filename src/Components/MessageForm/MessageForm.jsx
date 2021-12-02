@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { v4 as uuidv4 } from "uuid";
@@ -9,6 +9,12 @@ export function MessageForm({ messageList, setMessageList }) {
 
   const handleAuthorChange = (e) => setMessageAuthor(e.target.value);
   const handleTextChange = (e) => setMessageText(e.target.value);
+
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   const handleAdd = (e) => {
     if (messageAuthor === "" || messageText === "")
@@ -21,6 +27,7 @@ export function MessageForm({ messageList, setMessageList }) {
     };
     setMessageAuthor("");
     setMessageText("");
+
     return setMessageList([...messageList, newMessage]);
   };
 
@@ -39,6 +46,7 @@ export function MessageForm({ messageList, setMessageList }) {
           value={messageAuthor}
           placeholder="Name..."
           onChange={handleAuthorChange}
+          ref={inputRef}
           multiline
           autoFocus
         />

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Provider } from "react-redux";
 import "./App.css";
 import "./Components/MessageForm/MessageForm.css";
 import "./Components/MessageForm/MessageList.css";
@@ -13,6 +14,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import { store } from "./Store";
 
 function App() {
   const INIT_MESSAGES = {
@@ -34,7 +36,7 @@ function App() {
     if (messageList[messageList.length - 1].author !== "T-800")
       timer = setTimeout(() => {
         setMessageList([...messageList, BOT_MESSAGES]);
-      }, 1500);
+      }, 1000);
     return () => {
       clearTimeout(timer);
     };
@@ -63,7 +65,9 @@ function App() {
       </Box>
       <div className="family">
         <div className="menu">
-          <Router />
+          <Provider store={store}>
+            <Router />
+          </Provider>
         </div>
         <div className="chat">
           <MessageList messageList={messageList} />
