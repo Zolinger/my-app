@@ -1,0 +1,11 @@
+.chats-form {
+  position: relative;
+  width: 110px;
+  height: 200px;
+  border: 1px solid royalblue;
+  border-radius: 5px;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px;
+}
