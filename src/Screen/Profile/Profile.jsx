@@ -5,11 +5,11 @@ import { toggleUserNameAction } from "../../Store/Profile/actions";
 
 export const Profile = () => {
   const [dummy, setDummy] = useState();
-  const { showName, name } = useSelector((state) => state);
+  const { name, showName } = useSelector((state) => state);
   const dispatch = useDispatch();
   const setShowName = useCallback(() => {
     dispatch(toggleUserNameAction);
-    setDummy({});
+    setDummy();
   }, [dispatch]);
 
   return (

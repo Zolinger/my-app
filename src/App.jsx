@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { store } from "./Store/index";
 import { Provider } from "react-redux";
+import { Router } from "./Router/Router";
 import "./App.css";
 import "./Components/MessageForm/MessageForm.css";
 import "./Components/MessageForm/MessageList.css";
 import { MessageList } from "./Components/MessageForm/MessageList";
 import { MessageForm } from "./Components/MessageForm/MessageForm";
-import { Router } from "./Router/Router";
 import { v4 as uuidv4 } from "uuid";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -14,7 +15,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { store } from "./Store";
 
 function App() {
   const INIT_MESSAGES = {
