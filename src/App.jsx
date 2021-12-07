@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from "react";
 import { store } from "./Store/index";
 import { Provider } from "react-redux";
 import { Router } from "./Router/Router";
@@ -12,72 +13,66 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 
 function App() {
-  const INIT_MESSAGES = {
+  const INIT_BOT = {
     id: uuidv4(),
-    author: "T-800",
-    text: "I need your clothes, your boots and your motorcycle",
+    author: "Bot",
+    text: "Hello!",
   };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const BOT_MESSAGES = {
+  const CHAT_BOT = {
     id: uuidv4(),
-    author: "T-800",
-    text: "I search John Connor, did you know him?",
+    author: "Bot",
+    text: "To Be, or not to Be...",
   };
 
-  const [messageList, setMessageList] = useState([INIT_MESSAGES]);
+  const [messageList, setMessageList] = useState([INIT_BOT]);
 
   useEffect(() => {
     let timer;
-    if (messageList[messageList.length - 1].author !== "T-800")
+    if (messageList[messageList.length - 1].author !== "Bot")
       timer = setTimeout(() => {
-        setMessageList([...messageList, BOT_MESSAGES]);
-      }, 1000);
+        setMessageList([...messageList, CHAT_BOT]);
+      }, 1200);
     return () => {
       clearTimeout(timer);
     };
-  }, [BOT_MESSAGES, messageList]);
+  }, [CHAT_BOT, messageList]);
 
   return (
-    <div className="main-window">
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Menu
-            </Typography>
-            <Button color="inherit">Main</Button>
-          </Toolbar>
-        </AppBar>
-      </Box>
-      <div className="family">
-        <div className="menu">
-          <Provider store={store}>
+    <Provider store={store}>
+      <div className="main-window">
+        <Box sx={{ flexGrow: 1 }}>
+          <AppBar position="static">
+            <Toolbar>
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                sx={{ mr: 2 }}
+              ></IconButton>
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                My Project
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </Box>
+        <div className="family">
+          <div className="menu">
             <Router />
-          </Provider>
-        </div>
-        <div className="chat">
-          <MessageList messageList={messageList} />
-          <MessageForm
-            messageList={messageList}
-            setMessageList={setMessageList}
-          />
+          </div>
+          <div className="chat">
+            <MessageList messageList={messageList} />
+            <MessageForm
+              messageList={messageList}
+              setMessageList={setMessageList}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </Provider>
   );
 }
 

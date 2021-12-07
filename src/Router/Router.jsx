@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import { Main } from "../Screen/Main";
 import { Profile } from "../Screen/Profile";
-import { Chats } from "../Screen/Chats";
 import { ROUTES } from "./constants";
+import { Chats } from "../Screen/Chats/Chats";
 
 export const Router = () => {
   return (

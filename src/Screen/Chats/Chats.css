@@ -9,3 +9,22 @@
   font-weight: 500;
   padding: 5px;
 }
+
+.nameadd-chat {
+  width: 50px;
+  border: 1px solid royalblue;
+  font-size: 10px;
+  padding: 5px;
+  margin-left: 5px;
+}
+.add-chat {
+  width: 50px;
+  border: 1px solid royalblue;
+  font-size: 10px;
+  padding: 2px;
+  font-weight: 700;
+}
+.chat-name {
+  color: black;
+  font-weight: 700;
+}

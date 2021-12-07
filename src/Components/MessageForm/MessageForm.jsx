@@ -1,31 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
-import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { v4 as uuidv4 } from "uuid";
 
 export function MessageForm({ messageList, setMessageList }) {
-  const [messageAuthor, setMessageAuthor] = useState("");
   const [messageText, setMessageText] = useState("");
 
-  const handleAuthorChange = (e) => setMessageAuthor(e.target.value);
   const handleTextChange = (e) => setMessageText(e.target.value);
 
   const inputRef = useRef(null);
-
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
   const handleAdd = (e) => {
-    if (messageAuthor === "" || messageText === "")
-      return alert("заполните поля!");
-    if (messageAuthor === "T-800") return alert("Good try, human!");
     const newMessage = {
       id: uuidv4(),
-      author: messageAuthor,
+      author: "Me",
       text: messageText,
     };
-    setMessageAuthor("");
     setMessageText("");
 
     return setMessageList([...messageList, newMessage]);
@@ -33,30 +25,21 @@ export function MessageForm({ messageList, setMessageList }) {
 
   return (
     <form
+      className="sendform"
       action="#"
       onSubmit={(e) => {
         e.preventDefault();
       }}
     >
-      <div className="sendform">
-        <TextField
+      <div>
+        <input
           className="text-field"
-          id="outlined-textarea"
-          label="Name..."
-          value={messageAuthor}
-          placeholder="Name..."
-          onChange={handleAuthorChange}
-          ref={inputRef}
-          multiline
-          autoFocus
-        />
-        <TextField
-          className="text-field"
-          label="Message..."
+          label="Enter your message..."
           value={messageText}
           onChange={handleTextChange}
           placeholder="Message..."
-          multiline
+          autoFocus
+          ref={inputRef}
         />
         <Button
           variant="contained"

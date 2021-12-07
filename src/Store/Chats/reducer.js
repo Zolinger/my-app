@@ -2,7 +2,6 @@ import { ADD_CHAT_ACTION } from "./constants";
 
 const initialState = {
   chatList: [],
-  qwerty: "",
 };
 
 export const chatsReducer = (state = initialState, action) => {
