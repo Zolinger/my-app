@@ -4,6 +4,7 @@ import { Main } from "../Screen/Main";
 import { Profile } from "../Screen/Profile";
 import { ROUTES } from "./constants";
 import { Chats } from "../Screen/Chats/Chats";
+import { Chuck } from "../Screen/Chuck/chuck";
 
 export const Router = () => {
   return (
@@ -19,12 +20,16 @@ export const Router = () => {
           <li>
             <Link to={ROUTES.CHATS}>Chats</Link>
           </li>
+          <li>
+            <Link to={ROUTES.CHUCK}>Chuck Norris</Link>
+          </li>
         </ul>
       </header>
       <Routes>
         <Route path={ROUTES.MAIN} element={<Main />} />
         <Route path={ROUTES.PROFILE} element={<Profile />} />
         <Route path={ROUTES.CHATS} element={<Chats />} />
+        <Route path={ROUTES.CHUCK} element={<Chuck />} />
         <Route path={ROUTES.NO_CHAT}>No chat content</Route>
         <Route element={<Navigate to={ROUTES.NOT_FOUND} />} />
       </Routes>

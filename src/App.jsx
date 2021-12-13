@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { store } from "./Store/index";
 import { Provider } from "react-redux";
@@ -21,6 +20,7 @@ function App() {
     author: "Bot",
     text: "Hello!",
   };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const CHAT_BOT = {
     id: uuidv4(),
     author: "Bot",
