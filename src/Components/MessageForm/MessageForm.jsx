@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Button from "@mui/material/Button";
 import { v4 as uuidv4 } from "uuid";
+import firebase from "firebase";
 
 export function MessageForm({ messageList, setMessageList }) {
   const [messageText, setMessageText] = useState("");
@@ -12,12 +13,17 @@ export function MessageForm({ messageList, setMessageList }) {
     inputRef.current?.focus();
   }, []);
 
-  const handleAdd = (e) => {
+  const handleAdd = async (e) => {
     const newMessage = {
       id: uuidv4(),
       author: "Me",
       text: messageText,
     };
+    const db = firebase.database();
+
+    const id = firebase.auth().updateCurrentUser.uid;
+
+    db.ref("messages").child(id).push(newMessage);
     setMessageText("");
 
     return setMessageList([...messageList, newMessage]);

@@ -1,27 +1,53 @@
 import "./Profile.css";
-import { useCallback } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleUserNameAction } from "../../Store/Profile/actions";
+import React, { useState } from "react";
+import firebase from "firebase";
+import { SignOut } from "../SignOut";
 
-export const Profile = () => {
-  const { name, showName } = useSelector((state) => state);
-  const dispatch = useDispatch();
-  const setShowName = useCallback(() => {
-    dispatch(toggleUserNameAction);
-  }, [dispatch]);
+export function Profile() {
+  const [nick, setNick] = useState("");
+  const handleNickChange = (e) => setNick(e.target.value);
+
+  const [name, setName] = useState("");
+  const handleNameChange = (e) => setName(e.target.value);
+
+  const [lastname, setLastName] = useState("");
+  const handleLastNameChange = (e) => setLastName(e.target.value);
+
+  const handleSetDataUser = async (e) => {
+    const db = firebase.database();
+
+    const id = firebase.auth().currentUser.uid;
+
+    db.ref("profile").child(id).set({ nick, name, lastname });
+
+    setNick("");
+    setName("");
+    setLastName("");
+  };
 
   return (
     <div className="profile-form">
       <h3>My Profile</h3>
-      <h4>Name: Alex</h4>
       <input
-        type="checkbox"
-        checked={showName}
-        value={showName}
-        onChange={setShowName}
+        type="text"
+        placeholder="Nick..."
+        value={nick}
+        onChange={handleNickChange}
       />
-      <span>Show Name</span>
-      {showName && <div>{name}</div>}
+      <input
+        type="text"
+        placeholder="Name..."
+        value={name}
+        onChange={handleNameChange}
+      />
+      <input
+        type="text"
+        placeholder="Last name..."
+        value={lastname}
+        onChange={handleLastNameChange}
+      />
+      <button onClick={handleSetDataUser}>Send form</button>
+      <SignOut />
     </div>
   );
-};
+}
