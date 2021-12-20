@@ -1,8 +1,8 @@
 import { ADD_MESSAGE_ACTION } from "./constants";
+import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
   messageList: {},
-  qwerty: "",
 };
 
 export const messagesReducer = (state = initialState, action) => {
@@ -15,7 +15,7 @@ export const messagesReducer = (state = initialState, action) => {
         ...state,
         messageList: {
           ...state.messageList,
-          [chatId]: [...chatMessages, { id: "", ...rest }],
+          [chatId]: [...chatMessages, { id: uuidv4(), ...rest }],
         },
       };
     }

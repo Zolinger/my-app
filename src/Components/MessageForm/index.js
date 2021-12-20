@@ -1,3 +1,7 @@
-import { MesssageForm } from "./MessageForm";
+import { MessageForm } from "./MessageForm";
 
-export { MesssageForm };
+import { MessageList } from "./MessageList";
+
+export { MessageForm };
+
+export { MessageList };

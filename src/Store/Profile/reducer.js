@@ -2,7 +2,7 @@ import { TOGGLE_USER_NAME_ACTION, CHANGE_USER_NAME_ACTION } from "./constants";
 
 const initialState = {
   showName: true,
-  name: "Vasja",
+  name: "Alex",
 };
 
 export const profileReducer = (state = initialState, action) => {
